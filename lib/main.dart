@@ -1,28 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:project/service/post_service.dart';
-import 'package:project/service/task_service.dart';
+import 'package:project/src/view/homepage.dart';
 
-import 'model/post.dart';
+void main() => runApp(App());
 
-void main() {
-  runApp(MyApp());
-  loadTask();
-}
-
-class MyApp extends StatelessWidget {
+class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-  /*    title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),*/
-      home: MyHomePage(),
-    );
+        title: 'Todo App',
+        theme: ThemeData(
+          brightness: Brightness.dark,
+          primarySwatch: Colors.blue,
+        ),
+        home: Homepage());
   }
 }
 
-class MyHomePage extends StatelessWidget{
+/*
 /*  callAPI(){
     Post post = Post(
         body: 'Testing body body body',
@@ -37,27 +31,20 @@ class MyHomePage extends StatelessWidget{
       print('error : $error');
     });
   }*/
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(),
-        body : FutureBuilder<Post>(
-            future: getPost(),
-            builder: (context, snapshot) {
-            //  callAPI();
-              if(snapshot.connectionState == ConnectionState.done) {
+FutureBuilder<Post>(
+future: getPost(),
+builder: (context, snapshot) {
+//  callAPI();
+if(snapshot.connectionState == ConnectionState.done) {
 
-                if(snapshot.hasError){
-                  return Text("Error");
-                }
-
-                return Text('Title from Post JSON : ${snapshot.data.title}');
-
-              }
-              else
-                return CircularProgressIndicator();
-            }
-        )
-    );
-  }
+if(snapshot.hasError){
+return Text("Error");
 }
+
+return Text('Title from Post JSON : ${snapshot.data.title}');
+
+}
+else
+return CircularProgressIndicator();
+}
+)*/

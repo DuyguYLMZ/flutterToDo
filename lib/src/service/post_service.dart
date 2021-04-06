@@ -2,7 +2,7 @@ import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:io';
 
-import 'package:project/model/post.dart';
+import 'package:project/src/model/post.dart';
 
 String url = 'https://jsonplaceholder.typicode.com/posts';
 Uri uri ;
